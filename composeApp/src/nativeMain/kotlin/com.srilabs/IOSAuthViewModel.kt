@@ -1,7 +1,7 @@
 package com.srilabs
 
-// iosMain
 import dev.icerock.moko.biometry.BiometryAuthenticator
+import dev.icerock.moko.resources.desc.desc
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
@@ -13,9 +13,9 @@ class IOSAuthViewModel(private val biometryAuthenticator: BiometryAuthenticator)
         mainScope.launch {
             try {
                 val isSuccess = biometryAuthenticator.checkBiometryAuthentication(
-                    requestTitle = "Biometry",
-                    requestReason = "Invisible App needs your authentication",
-                    failureButtonText = "Oops",
+                    requestTitle = "Biometry".desc(),
+                    requestReason = "Invisible App needs your authentication".desc(),
+                    failureButtonText = "Oops".desc(),
                     allowDeviceCredentials = true
                 )
                 if (isSuccess) {
@@ -23,8 +23,8 @@ class IOSAuthViewModel(private val biometryAuthenticator: BiometryAuthenticator)
                 } else {
                     onError(RuntimeException("An error occurred"))
                 }
-            } catch (e: NSError) {
-                onError(Exception(e.localizedDescription))
+            } catch (e: Exception) {
+                onError(e)
             }
         }
     }

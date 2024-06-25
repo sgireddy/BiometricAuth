@@ -33,13 +33,6 @@ kotlin {
     sourceSets {
         val desktopMain by getting
 
-        val iosMain by getting {
-            dependencies {
-                implementation("dev.icerock.moko:biometry-compose:0.4.0") // Check for the latest version
-            }
-        }
-
-        
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -57,6 +50,14 @@ kotlin {
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
         }
+        iosMain.dependencies {
+            implementation("dev.icerock.moko:biometry-compose:0.4.0")
+        }
+
+        nativeMain.dependencies {
+            implementation("dev.icerock.moko:biometry-compose:0.4.0")
+        }
+
     }
 }
 

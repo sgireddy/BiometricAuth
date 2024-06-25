@@ -46,5 +46,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Authentication with TouchId or FaceID, we will not collect any of your personal or biometric data, all this App receives is a simple Success/Failure message.</string>
 </dict>
 </plist>
